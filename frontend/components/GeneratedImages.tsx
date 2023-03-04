@@ -44,7 +44,7 @@ const GeneratedImages = ({
               <Box
                 as={motion.div}
                 whileHover={{ scale: 1.03 }}
-                h="350px"
+                minH="320px"
                 overflow="hidden"
                 bgColor="#1a1a1a"
                 key={url}

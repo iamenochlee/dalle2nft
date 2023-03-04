@@ -20,6 +20,9 @@ const Intro = () => {
         <ListItem textStyle="round">Enter a Prompt</ListItem>
         <ListItem textStyle="round">Select the Number</ListItem>
         <ListItem textStyle="round">Click Generate</ListItem>
+        <ListItem textStyle="round">
+          Select the images you want (Max:. 3)
+        </ListItem>
         <ListItem textStyle="round">Deploy</ListItem>
         <ListItem textStyle="round">Host </ListItem>
         <ListItem textStyle="round">Mint Your NFT!</ListItem>
