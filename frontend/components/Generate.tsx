@@ -14,6 +14,7 @@ const Generate = ({
   setIsLoading,
   setContractAddress,
   setHasMinted,
+  setSelectedImages,
 }: GenerateProps) => {
   const [error, setError] = useState<string | null>(null);
   function handleGenerate() {
@@ -41,6 +42,7 @@ const Generate = ({
         variant="outline"
         onClick={() => {
           if (prompt) {
+            setSelectedImages([]);
             setIsLoading(true);
             handleGenerate();
             setContractAddress(null);

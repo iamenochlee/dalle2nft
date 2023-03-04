@@ -94,6 +94,7 @@ export interface DeployProps {
 }
 export interface GenerateProps {
   setUrls: StateDispatch<string[]>;
+  setSelectedImages: StateDispatch<string[]>;
   setPrompt: StateDispatch<string>;
   isLoading: boolean;
   setIsLoading: StateDispatch<boolean>;

@@ -35,6 +35,7 @@ const HomePage = () => {
           prompt={prompt}
           setHasMinted={setHasMinted}
           setContractAddress={setContractAddress}
+          setSelectedImages={setSelectedImages}
         />
         {!hasMinted && !urls.length && !isLoading && <Intro />}
         {!hasMinted ? (
