@@ -52,5 +52,3 @@ app.post("/pin", async function (req, res, next) {
 
 console.log("listening...");
 app.listen(8080);
-
-module.exports = app;
