@@ -21,7 +21,10 @@ const HomePage = () => {
 
   return (
     <>
-      <Grid as="section" gap="2em" templateColumns="1fr minmax(200px, 2fr)">
+      <Grid
+        as="section"
+        gap="2em"
+        templateColumns={{ lg: "1fr minmax(200px, 2fr)" }}>
         <Generate
           isLoading={isLoading}
           setIsLoading={setIsLoading}

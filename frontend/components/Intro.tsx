@@ -3,13 +3,17 @@ import { Flex, Heading, List, ListItem } from "@chakra-ui/react";
 
 const Intro = () => {
   return (
-    <Flex pt={10} pl={32} fontSize="2xl" flexDir="column">
+    <Flex
+      pt={{ base: 24, lg: 10 }}
+      pl={{ base: 0, lg: 32 }}
+      fontSize={{ base: "lg", lg: "2xl" }}
+      flexDir="column">
       <Heading
         as="h1"
         mb={7}
         color="blue.400"
         fontWeight="semibold"
-        fontSize="3xl">
+        fontSize={{ base: "xl", lg: "3xl" }}>
         Steps to Your NFTS
       </Heading>
       <List listStyleType="circle" pl={8}>

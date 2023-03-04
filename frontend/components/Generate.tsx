@@ -36,7 +36,7 @@ const Generate = ({
         isDisabled={isLoading || !prompt}
         loadingText="Generating"
         colorScheme="blue"
-        mt="5em"
+        mt={{ base: "1.5em", md: "5em" }}
         w={40}
         variant="outline"
         onClick={() => {

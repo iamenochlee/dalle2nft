@@ -21,7 +21,7 @@ const Prompt = ({ prompt, number, setPrompt, setNumber }: PromptProps) => {
       <Text as="h3" mt={4} fontSize="lg" mb={4}>
         no. of images
       </Text>
-      <Flex justifyContent="space-around" gap="1.3em">
+      <Flex justifyContent="space-around" gap={{ base: "0.7em", md: "1.3em" }}>
         <Button
           isDisabled={number === 1}
           onClick={() => {

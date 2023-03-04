@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: React.ReactElement }) => {
         mb={5}
         pt={6}
         justifyContent="end"
-        pr="4em"
+        pr={{ base: "0.6rem", md: "4em" }}
         alignItems="center"
         minH="50px">
         <ConnectKitButton />
