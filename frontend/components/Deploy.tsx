@@ -48,9 +48,7 @@ const Deploy = ({
         isLoading={values.isLoading}
         isDisabled={!args.name || !args.symbol}
         loadingText="Deploying"
-        onClick={() => {
-          deployContract();
-        }}>
+        onClick={deployContract}>
         Deploy
       </Button>
       <Center mt={1} visibility={values.isError ? "visible" : "hidden"}>

@@ -25,7 +25,7 @@ function App() {
               src="/nfts.jpeg"
               alt="nfts"
               mb={4}
-              minH={{ lg: "450px" }}
+              minH={{ base: "230px", lg: "450px" }}
               maxW="100%"
             />
             <Heading
@@ -36,7 +36,10 @@ function App() {
               mb={6}>
               Easily Generate and Mint NFTs from text prompt with DALL-E
             </Heading>
-            <ConnectKitButton label="Click to connect your Wallet" />
+            <ConnectKitButton
+              label="Click to connect your Wallet"
+              mode="dark"
+            />
           </Flex>
         </Center>
       )}

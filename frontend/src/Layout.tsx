@@ -12,8 +12,8 @@ const Layout = ({ children }: { children: React.ReactElement }) => {
         justifyContent="end"
         pr={{ base: "0.6rem", md: "4em" }}
         alignItems="center"
-        minH="50px">
-        <ConnectKitButton />
+        minH="75px">
+        <ConnectKitButton mode="dark" />
       </Flex>
       <main>{children}</main>
     </>

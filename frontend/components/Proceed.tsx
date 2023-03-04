@@ -66,8 +66,12 @@ const Proceed = ({
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton onClick={onWarningOpen} />
-          <DrawerHeader>Mint NFTs</DrawerHeader>
-          <DrawerBody pt={4}>
+          <DrawerHeader>
+            {(stage === 0 && "Deploy") ||
+              (stage === 1 && "Host") ||
+              (stage === 2 && "Mint")}
+          </DrawerHeader>
+          <DrawerBody px={{ base: 2.5, lg: 3.5 }} pt={4}>
             <SelectedImages prompt={prompt} selectedImages={selectedImages} />
             {stage === 0 && (
               <Deploy
