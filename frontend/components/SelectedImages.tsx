@@ -9,12 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { SelectedProps } from "../types";
-import {
-  ArrowForwardIcon,
-  ArrowBackIcon,
-  ChevronRightIcon,
-  ChevronLeftIcon,
-} from "@chakra-ui/icons";
+import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 
 const SelectedImages = ({ selectedImages, prompt }: SelectedProps) => {
   const [currIndex, setCurrIndex] = useState(0);
