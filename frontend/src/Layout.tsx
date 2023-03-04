@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: React.ReactElement }) => {
         pr={{ base: "0.6rem", md: "4em" }}
         alignItems="center"
         minH="75px">
-        <ConnectKitButton mode="dark" />
+        <ConnectKitButton mode="dark" showBalance={true} />
       </Flex>
       <main>{children}</main>
     </>
