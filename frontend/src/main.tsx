@@ -25,7 +25,7 @@ root.render(
   <React.StrictMode>
     <WagmiConfig client={client}>
       <ChakraProvider theme={theme}>
-        <ConnectKitProvider>
+        <ConnectKitProvider theme="midnight">
           <Layout>
             <App />
           </Layout>
