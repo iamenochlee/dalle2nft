@@ -16,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 import { CopyIcon, CheckCircleIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { CompleteDialogProps } from "../types";
+import { resolveExplorer } from "../utils/resolvedExplorer";
+import { useNetwork } from "wagmi";
 
 const CompleteDialog = ({
   contractAddress,
@@ -26,6 +28,7 @@ const CompleteDialog = ({
 }: CompleteDialogProps) => {
   const { onCopy, hasCopied } = useClipboard(contractAddress);
   const cancelRef = React.useRef(null);
+  const { chain } = useNetwork();
 
   return (
     <AlertDialog
@@ -74,8 +77,8 @@ const CompleteDialog = ({
             textDecoration="underline"
             color="green.200"
             target="_blank"
-            href={`https://polygonscan.com/tx/${hash}`}>
-            View on PolygonScan
+            href={`${resolveExplorer(chain?.name as string)}tx/${hash}`}>
+            View on Etherscan
           </Link>
         </AlertDialogBody>
         <AlertDialogFooter>

@@ -47,23 +47,28 @@ const SelectedImages = ({ selectedImages, prompt }: SelectedProps) => {
         })}
       </Flex>
       <Center mt={3}>
-        <Text>{selectedImages.length} selected images</Text>
+        <Text>
+          {selectedImages.length} selected image
+          {selectedImages.length > 1 ? "s" : ""}
+        </Text>
       </Center>
-      <Center mt={4} mb={9}>
-        <ButtonGroup gap={6} display="block">
-          <IconButton
-            isDisabled={currIndex === 0}
-            aria-label="See previous"
-            icon={<ChevronLeftIcon />}
-            onClick={() => handleClick("prev")}
-          />
-          <IconButton
-            isDisabled={currIndex === selectedImages.length - 1}
-            aria-label="See next"
-            icon={<ChevronRightIcon />}
-            onClick={() => handleClick("next")}
-          />
-        </ButtonGroup>
+      <Center mt={4} mb={selectedImages.length > 1 ? 12 : 28}>
+        {selectedImages.length > 1 && (
+          <ButtonGroup gap={6} display="block">
+            <IconButton
+              isDisabled={currIndex === 0}
+              aria-label="See previous"
+              icon={<ChevronLeftIcon />}
+              onClick={() => handleClick("prev")}
+            />
+            <IconButton
+              isDisabled={currIndex === selectedImages.length - 1}
+              aria-label="See next"
+              icon={<ChevronRightIcon />}
+              onClick={() => handleClick("next")}
+            />
+          </ButtonGroup>
+        )}
       </Center>
     </>
   );

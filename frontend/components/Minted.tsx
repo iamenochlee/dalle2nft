@@ -12,13 +12,20 @@ import { NftContractNftsResponse } from "alchemy-sdk";
 import React, { useEffect, useState } from "react";
 import { fetchNFTS } from "../helpers/FetchNFTs";
 import { motion } from "framer-motion";
+import { useNetwork } from "wagmi";
+import { resolveExplorer } from "../utils/resolvedExplorer";
 
 const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
   const [nfts, setNFTS] = useState<NftContractNftsResponse>();
   const [isloading, setIsLoading] = useState(true);
+  const { chain } = useNetwork();
 
   useEffect(() => {
-    fetchNFTS(contractAddress as string, setIsLoading).then((res) => {
+    fetchNFTS(
+      contractAddress as string,
+      setIsLoading,
+      chain?.name as string
+    ).then((res) => {
       setNFTS(res);
     });
   }, []);
@@ -38,7 +45,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
         placeItems="center"
         gap={5}>
         {isloading
-          ? new Array(4).fill(2).map((box, i) => {
+          ? new Array(3).fill(2).map((box, i) => {
               return (
                 <Skeleton
                   h="400px"
@@ -57,7 +64,9 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                   target="_blank"
                   as={motion.a}
                   cursor="pointer"
-                  href={`https://polygonscan.com/address/${nft.contract.address}`}
+                  href={`${resolveExplorer(chain?.name as string)}address/${
+                    nft.contract.address
+                  }`}
                   display="block"
                   bgColor="#1a1a1a"
                   borderRadius="xl"
@@ -78,7 +87,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                         {content.name}
                       </Text>
                       <Text mr="auto">{"ERC721"}</Text>
-                      <Text>{nft.tokenId}</Text>
+                      <Text>#{nft.tokenId}</Text>
                     </Flex>
                     <Text fontSize="sm">Description:</Text>
                     <Text>{content.description}</Text>
