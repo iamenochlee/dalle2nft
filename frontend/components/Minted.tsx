@@ -44,7 +44,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
         placeItems="center"
         gap={5}>
         {isloading
-          ? new Array(3).fill(2).map((box, i) => {
+          ? new Array(3).fill(2).map((box) => {
               return (
                 <Skeleton
                   h="400px"
@@ -76,7 +76,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                     mb={3}
                     maxW="100%"
                     minH="300px"
-                    src={nft.media[i].raw}
+                    src={nft.media[0].raw}
                     alt={`${nft.title}-${nft.tokenId}`}
                   />
                   <Box p={3}>
