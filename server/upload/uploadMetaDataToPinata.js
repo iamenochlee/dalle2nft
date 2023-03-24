@@ -12,18 +12,16 @@ export const uploadMetaDataToPinata = async (
   let metadatas = [];
   for (let i = 0; i < imageUrls.length; i++) {
     const metadata = {
-      path: "/",
-      content: JSON.stringify({
-        name,
-        image: `https://gateway.pinata.cloud/ipfs/${imageHash}/${name}-${i}`,
-        description: prompt,
-        attributes: [
-          {
-            trait_type: "DALL-E GENERATED",
-            value: true,
-          },
-        ],
-      }),
+      name,
+      image: `https://gateway.pinata.cloud/ipfs/${imageHash}/${name}-${i}`,
+      description: prompt,
+      external_url: "https://dalle2nft.vercel.app/",
+      attributes: [
+        {
+          trait_type: "DALL-E GENERATED",
+          value: true,
+        },
+      ],
     };
     metadatas.push(metadata);
   }

@@ -58,7 +58,6 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
               );
             })
           : nfts?.nfts.map((nft) => {
-              const content = JSON.parse(nft.rawMetadata?.content);
               return (
                 <Box
                   target="_blank"
@@ -78,19 +77,21 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                     mb={3}
                     maxW="100%"
                     minH="300px"
-                    src={content.image}
-                    alt={`${content.name}-${nft.tokenId}`}
+                    src={nft.media[0].gateway}
+                    alt={`${nft.contract.name}-${nft.tokenId}`}
                   />
                   <Box p={3}>
                     <Flex alignItems="center" gap={5} mb={2}>
                       <Text color="blue.400" fontWeight="semibold">
-                        {content.name}
+                        {nft.contract.name}
                       </Text>
                       <Text mr="auto">{"ERC721"}</Text>
-                      <Text>#{nft.tokenId}</Text>
+                      <Text>
+                        {nft.contract.symbol} #{nft.tokenId}
+                      </Text>
                     </Flex>
                     <Text fontSize="sm">Description:</Text>
-                    <Text>{content.description}</Text>
+                    <Text>{nft.description}</Text>
                   </Box>
                 </Box>
               );
