@@ -19,7 +19,6 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
   const [nfts, setNFTS] = useState<NftContractNftsResponse>();
   const [isloading, setIsLoading] = useState(true);
   const { chain } = useNetwork();
-
   useEffect(() => {
     fetchNFTS(
       contractAddress as string,
@@ -57,7 +56,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                 />
               );
             })
-          : nfts?.nfts.map((nft) => {
+          : nfts?.nfts.map((nft, i) => {
               return (
                 <Box
                   target="_blank"
@@ -77,13 +76,13 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                     mb={3}
                     maxW="100%"
                     minH="300px"
-                    src={nft.media[0].gateway}
-                    alt={`${nft.contract.name}-${nft.tokenId}`}
+                    src={nft.media[i].raw}
+                    alt={`${nft.title}-${nft.tokenId}`}
                   />
                   <Box p={3}>
                     <Flex alignItems="center" gap={5} mb={2}>
                       <Text color="blue.400" fontWeight="semibold">
-                        {nft.contract.name}
+                        {nft.title}
                       </Text>
                       <Text mr="auto">{"ERC721"}</Text>
                       <Text>
