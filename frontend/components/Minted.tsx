@@ -44,7 +44,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
         placeItems="center"
         gap={5}>
         {isloading
-          ? new Array(3).fill(2).map((box) => {
+          ? new Array(3).fill(2).map((box, i) => {
               return (
                 <Skeleton
                   h="400px"
@@ -56,7 +56,7 @@ const Minted = ({ contractAddress }: { contractAddress: string | null }) => {
                 />
               );
             })
-          : nfts?.nfts.map((nft, i) => {
+          : nfts?.nfts.map((nft) => {
               return (
                 <Box
                   target="_blank"
